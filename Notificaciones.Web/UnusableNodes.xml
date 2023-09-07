@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <Views Id="Views">
+    <DetailView Id="Mensaje_DetailView">
+      <Layout Id="Layout">
+        <LayoutGroup Id="Main">
+          <LayoutGroup Id="SimpleEditors">
+            <LayoutGroup Id="Mensaje">
+              <LayoutItem Id="Contenido" Index="1" RelativeSize="93.3609958506224" />
+              <LayoutItem Id="Fecha" Index="2" RelativeSize="88.38174273858921" Removed="True" />
+              <LayoutItem Id="Emisor" Removed="True" />
+              <LayoutItem Id="Receptor" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+  </Views>
+</Application>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Application>
+  <BOModel>
+    <Class Name="Notificaciones.Module.BusinessObjects.Mensaje">
+      <OwnMembers>
+        <Member Name="Emisor" DataSourceCriteria="[Roles][[Name] = 'Administrators']" />
+        <Member Name="Receptor" DataSourceCriteria="[Roles][[Name] &lt;&gt; 'Administrators']" />
+      </OwnMembers>
+    </Class>
+  </BOModel>
+  <NavigationItems>
+    <Items>
+      <Item Id="Default">
+        <Items>
+          <Item Id="enviarmensaje" Caption="Enviar Mensaje" ToolTip="Enviar Mensaje" ViewId="Mensaje_DetailView" Visible="False" IsNewNode="True" />
+        </Items>
+      </Item>
+    </Items>
+  </NavigationItems>
+  <SchemaModules>
+    <SchemaModule Name="SystemAspNetModule" Version="18.1.12.0" IsNewNode="True" />
+    <SchemaModule Name="SystemModule" Version="18.1.12.0" IsNewNode="True" />
+  </SchemaModules>
+</Application>
