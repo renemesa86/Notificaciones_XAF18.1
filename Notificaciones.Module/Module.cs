@@ -57,8 +57,9 @@ namespace Notificaciones.Module {
             if (e.Type == typeof(Mensaje))
             {
                 int currentUser = int.Parse(SecuritySystem.CurrentUserId.ToString());
-                e.Criteria = CriteriaOperator.Parse("Receptor is null || Receptor.Id == CurrentUserId()");
+                e.Criteria = CriteriaOperator.Parse("Receptor.Id == CurrentUserId()");
             }
+            
         }
 
     }
