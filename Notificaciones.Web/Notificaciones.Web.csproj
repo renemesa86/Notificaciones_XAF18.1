@@ -55,6 +55,7 @@
     <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DevExpress.ExpressApp.ConditionalAppearance.v18.1, Version=18.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL" />
     <Reference Include="DevExpress.ExpressApp.EF.v18.1, Version=18.1.12.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
     </Reference>
@@ -255,6 +256,22 @@
     <None Include="packages.config" />
     <None Include="ReadMe.txt" />
     <Content Include="UnusableNodes.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="UnusableNodes1.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="UnusableNodes2.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="UnusableNodes3.xml">
+      <DependentUpon>Model.xafml</DependentUpon>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="UnusableNodes4.xml">
       <DependentUpon>Model.xafml</DependentUpon>
       <SubType>Designer</SubType>
     </Content>
