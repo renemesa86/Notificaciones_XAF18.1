@@ -1,7 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Application>
+<Application PreferredLanguage="(Default language)">
+  <ActionDesign>
+    <Actions>
+      <Action Id="Dismiss" Caption="Leído" />
+      <Action Id="Snooze" Caption="Posponer" />
+    </Actions>
+  </ActionDesign>
   <BOModel>
+    <Class Name="Notificaciones.Module.BusinessObjects.Evento">
+      <OwnMembers>
+        <Member Name="FechaProgramada" EditMaskType="DateTime" EditMask="G" DisplayFormat="{0:G}" />
+      </OwnMembers>
+    </Class>
     <Class Name="Notificaciones.Module.BusinessObjects.Mensaje">
+      <AppearanceRules>
+        <AppearanceRule Id="ColorVerdeLeidos" BackColor="192, 255, 192" Context="ListView" Criteria="[Leido] = True" TargetItems="*" IsNewNode="True" />
+      </AppearanceRules>
       <OwnMembers>
         <Member Name="Emisor" DataSourceCriteria="[Roles][[Name] = 'Administrators']" />
         <Member Name="Receptor" DataSourceCriteria="[Roles][[Name] &lt;&gt; 'Administrators']" />
@@ -13,6 +27,7 @@
       <Item Id="Default">
         <Items>
           <Item Id="enviarmensaje" Caption="Enviar Mensaje" ToolTip="Enviar Mensaje" ViewId="Mensaje_DetailView" Visible="False" IsNewNode="True" />
+          <Item Id="Mensaje_ListView" Removed="True" />
         </Items>
       </Item>
     </Items>
@@ -21,4 +36,127 @@
     <SchemaModule Name="SystemAspNetModule" Version="18.1.12.0" IsNewNode="True" />
     <SchemaModule Name="SystemModule" Version="18.1.12.0" IsNewNode="True" />
   </SchemaModules>
+  <Views>
+    <DetailView Id="Evento_DetailView">
+      <Items>
+        <PropertyEditor Id="FechaProgramada" EditMaskType="DateTime" EditMask="f" />
+        <PropertyEditor Id="Mensajes" DataSourceCriteria="" DataSourceCriteriaProperty="" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="16.306483300589392">
+            <LayoutGroup Id="Evento" RelativeSize="100">
+              <LayoutItem Id="Nombre" RelativeSize="38.554216867469883" />
+              <LayoutGroup Id="Auto37b367ea-1bde-416e-99aa-e08c9845efe9" ShowCaption="False" Caption="" Direction="Horizontal" Index="1" RelativeSize="28.91566265060241" IsNewNode="True">
+                <LayoutItem Id="FechaProgramada" ViewItem="FechaProgramada" Index="0" RelativeSize="49.921752738654149" IsNewNode="True" />
+                <LayoutItem Id="HoraProgramada" ViewItem="HoraProgramada" Index="1" RelativeSize="50.078247261345851" IsNewNode="True" />
+              </LayoutGroup>
+              <LayoutItem Id="FechaProgramada" Removed="True" />
+            </LayoutGroup>
+          </LayoutGroup>
+          <LayoutGroup Id="Mensajes_Group" Direction="Vertical" RelativeSize="83.693516699410608">
+            <LayoutItem Id="Mensajes" RelativeSize="100" />
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Evento_ListView">
+      <Columns>
+        <ColumnInfo Id="FechaProgramada" EditMaskType="DateTime" EditMask="G" Width="168" />
+      </Columns>
+    </ListView>
+    <ListView Id="Evento_Mensajes_ListView" InlineEditMode="EditForm" Criteria="">
+      <Columns>
+        <ColumnInfo Id="Emisor" Index="1" />
+        <ColumnInfo Id="Receptor" Index="2" />
+        <ColumnInfo Id="FechaProgramada" Index="3" Removed="True" />
+        <ColumnInfo Id="Evento" Removed="True" />
+        <ColumnInfo Id="Leido" Removed="True" />
+        <ColumnInfo Id="Leído" PropertyName="Leido" Caption="Leído" IsNewNode="True" />
+        <ColumnInfo Id="RemindIn" Removed="True" />
+      </Columns>
+    </ListView>
+    <DetailView Id="Mensaje_DetailView">
+      <Layout>
+        <LayoutGroup Id="Main" RelativeSize="100">
+          <LayoutGroup Id="SimpleEditors" RelativeSize="100">
+            <LayoutGroup Id="Mensaje" RelativeSize="100" Direction="Vertical">
+              <LayoutGroup Id="Mensaje_col1" Caption="Mensaje_col1" RelativeSize="100">
+                <LayoutGroup Id="Auto4aa8bd11-9de5-457f-8ee8-bdd93442e430" ShowCaption="False" Caption="Auto4aa8bd11-9de5-457f-8ee8-bdd93442e430(5)" Direction="Vertical" Index="0" RelativeSize="14.5610278372591" IsNewNode="True">
+                  <LayoutItem Id="Evento" ViewItem="Evento" Index="0" RelativeSize="47.058823529411768" IsNewNode="True" />
+                  <LayoutGroup Id="Auto5cb8b9d7-5207-46c4-8994-1b8102c3c453" ShowCaption="False" Caption="Auto5cb8b9d7-5207-46c4-8994-1b8102c3c453(7)" Direction="Horizontal" Index="1" RelativeSize="52.941176470588232" IsNewNode="True">
+                    <LayoutItem Id="Emisor" ViewItem="Emisor" Index="0" RelativeSize="49.918699186991873" IsNewNode="True" />
+                    <LayoutItem Id="Receptor" ViewItem="Receptor" Index="1" RelativeSize="50.081300813008127" IsNewNode="True" />
+                  </LayoutGroup>
+                </LayoutGroup>
+                <LayoutGroup Id="Autoc4e13bc8-ca9e-4940-81cc-a03f6f02eb4c" ShowCaption="False" Caption="Autoc4e13bc8-ca9e-4940-81cc-a03f6f02eb4c(8)" Index="1" RelativeSize="85.4389721627409" IsNewNode="True">
+                  <LayoutItem Id="Contenido" ViewItem="Contenido" Index="0" RelativeSize="100" IsNewNode="True" />
+                </LayoutGroup>
+                <LayoutItem Id="Contenido" Removed="True" />
+                <LayoutItem Id="Emisor" Removed="True" />
+                <LayoutItem Id="FechaProgramada" Removed="True" />
+              </LayoutGroup>
+              <LayoutGroup Id="Mensaje_col2" RelativeSize="33.125" Caption="Mensaje_col2" Direction="Horizontal" Removed="True">
+                <LayoutItem Id="RemindIn" RelativeSize="100" Index="0" Removed="True" />
+                <LayoutItem Id="Receptor" RelativeSize="6.8522483940042829" Removed="True" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="Mensaje_ListView" Criteria="[RemindIn] Is Not Null And Not [Leido] In (True)" Filter="[RemindIn] Is Not Null And Not [Leido] In (True)" />
+    <ListView Id="Mensaje_LookupListView" Criteria="[RemindIn] Is Not Null And Not [Leido] In (True)" Filter="[RemindIn] Is Not Null And Not [Leido] In (True)" />
+    <DetailView Id="Notification_DetailView">
+      <Items>
+        <PropertyEditor Id="AlarmTime" Caption="Fecha y hora programada" />
+        <PropertyEditor Id="Subject" Caption="Mensaje" />
+      </Items>
+    </DetailView>
+    <ListView Id="Notification_ListView">
+      <Columns>
+        <ColumnInfo Id="Subject" Caption="Mensaje" />
+        <ColumnInfo Id="AlarmTime" Caption="Fecha y hora programada" EditMaskType="DateTime" EditMask="G" />
+      </Columns>
+    </ListView>
+    <DetailView Id="NotificationsObject_DetailView">
+      <Items>
+        <ActionContainerViewItem Id="ActionGroup" Caption="ActionGroup(16)" />
+        <PropertyEditor Id="Postpone" Caption="Posponer por" />
+        <ActionContainerViewItem Id="RefreshNotifications" Caption="RefreshNotifications(3)" />
+      </Items>
+      <Layout>
+        <LayoutGroup Id="LayoutGroupPostpone" ShowCaption="False" Index="0" RelativeSize="8.25147347740668">
+          <LayoutGroup Id="NotificationsStateGroup" ShowCaption="False" Index="0" RelativeSize="100">
+            <LayoutItem Id="RefreshNotifications" Index="0" RelativeSize="35.759493670886073" />
+            <LayoutItem Id="NotificationsState" MinSize="1, 1" MaxSize="260, 0" Index="1" RelativeSize="64.240506329113927" />
+          </LayoutGroup>
+        </LayoutGroup>
+        <LayoutGroup Id="MasterGroup" Index="1" RelativeSize="91.748526522593323">
+          <LayoutGroup Id="Main" RelativeSize="47.323340471092074">
+            <LayoutItem Id="Notifications" Index="0" RelativeSize="100" />
+          </LayoutGroup>
+          <LayoutGroup Id="LayoutGroupActions" Index="1" RelativeSize="52.676659528907926">
+            <LayoutGroup Id="WrapperNotifications" Direction="Vertical" Index="0" RelativeSize="71.544715447154474">
+              <LayoutItem Id="ShowNotificationsWindow" MinSize="225, 1" MaxSize="225, 0" Index="0" RelativeSize="100" />
+            </LayoutGroup>
+            <LayoutItem Id="EmptyItem6" MinSize="1, 32" MaxSize="0, 32" Index="1" RelativeSize="13.008130081300813" />
+            <LayoutGroup Id="LayoutGroupActions2" Caption="LayoutGroupActions2(12)" Index="2" RelativeSize="15.447154471544716">
+              <LayoutItem Id="Postpone" SizeConstraintsType="Custom" Index="0" RelativeSize="33.544303797468352" MinSize="162, 38" />
+              <LayoutGroup Id="ActionGroup" Index="1" RelativeSize="66.455696202531641">
+                <LayoutItem Id="EmptyItem9" MinSize="1, 1" MaxSize="0, 1" Index="0" RelativeSize="2.6315789473684212" />
+                <LayoutItem Id="ActionGroup" Index="1" RelativeSize="97.368421052631575" SizeConstraintsType="Custom" MinSize="96, 36" />
+              </LayoutGroup>
+            </LayoutGroup>
+          </LayoutGroup>
+        </LayoutGroup>
+      </Layout>
+    </DetailView>
+    <ListView Id="NotificationsObject_Notifications_ListView">
+      <Columns>
+        <ColumnInfo Id="Subject" Caption="Mensaje" />
+        <ColumnInfo Id="AlarmTime" Caption="Fecha y hora programada" />
+      </Columns>
+    </ListView>
+  </Views>
 </Application>
