@@ -21,6 +21,7 @@ namespace Notificaciones.Web {
         private DevExpress.ExpressApp.Notifications.NotificationsModule notificationsModule;
         private DevExpress.ExpressApp.Notifications.Web.NotificationsAspNetModule notificationsAspNetModule;
         private DevExpress.ExpressApp.Validation.ValidationModule validationModule;
+        private DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule conditionalAppearanceModule1;
         private DevExpress.ExpressApp.Validation.Web.ValidationAspNetModule validationAspNetModule;
 
         #region Default XAF configuration options (https://www.devexpress.com/kb=T501418)
@@ -87,6 +88,7 @@ namespace Notificaciones.Web {
             this.notificationsAspNetModule = new DevExpress.ExpressApp.Notifications.Web.NotificationsAspNetModule();
             this.validationModule = new DevExpress.ExpressApp.Validation.ValidationModule();
             this.validationAspNetModule = new DevExpress.ExpressApp.Validation.Web.ValidationAspNetModule();
+            this.conditionalAppearanceModule1 = new DevExpress.ExpressApp.ConditionalAppearance.ConditionalAppearanceModule();
             ((System.ComponentModel.ISupportInitialize)(this)).BeginInit();
             // 
             // securityStrategyComplex1
@@ -123,11 +125,12 @@ namespace Notificaciones.Web {
             this.Modules.Add(this.objectsModule);
             this.Modules.Add(this.notificationsModule);
             this.Modules.Add(this.validationModule);
-            this.Modules.Add(this.module3);
             this.Modules.Add(this.notificationsAspNetModule);
+            this.Modules.Add(this.module3);
             this.Modules.Add(this.validationAspNetModule);
             this.Modules.Add(this.module4);
             this.Modules.Add(this.securityModule1);
+            this.Modules.Add(this.conditionalAppearanceModule1);
             this.Security = this.securityStrategyComplex1;
             this.DatabaseVersionMismatch += new System.EventHandler<DevExpress.ExpressApp.DatabaseVersionMismatchEventArgs>(this.NotificacionesAspNetApplication_DatabaseVersionMismatch);
             ((System.ComponentModel.ISupportInitialize)(this)).EndInit();
