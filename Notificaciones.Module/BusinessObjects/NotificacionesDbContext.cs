@@ -28,7 +28,7 @@ namespace Notificaciones.Module.BusinessObjects {
 		public DbSet<ModelDifference> ModelDifferences { get; set; }
 		public DbSet<ModelDifferenceAspect> ModelDifferenceAspects { get; set; }
         public DbSet<Mensaje> Mensaje { get; set; }
-        //public DbSet<Notificacion> Notificacion { get; set; }
+        public DbSet<Evento> Evento { get; set; }
         //public DbSet<Task> Tasks { get; set; }
     }
 }
