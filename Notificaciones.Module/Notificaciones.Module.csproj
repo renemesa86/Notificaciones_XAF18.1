@@ -114,15 +114,32 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BusinessObjects\Evento.cs" />
+    <Compile Include="BusinessObjects\Util.cs" />
     <Compile Include="BusinessObjects\Mensaje.cs" />
     <Compile Include="BusinessObjects\NotificacionesDbContext.cs" />
-    <Compile Include="Controllers\EnviarMensajeController.cs">
+    <Compile Include="Controllers\CustomDismissController.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controllers\EnviarMensajeController.Designer.cs">
-      <DependentUpon>EnviarMensajeController.cs</DependentUpon>
+    <Compile Include="Controllers\CustomDismissController.Designer.cs">
+      <DependentUpon>CustomDismissController.cs</DependentUpon>
     </Compile>
-    <Compile Include="Controllers\Mensajeria.cs" />
+    <Compile Include="Controllers\CustomNotificationsNotificationsDialogViewControllerViewController.cs" />
+    <Compile Include="Controllers\CustomNotificationsNotificationsDialogViewControllerViewController.designer.cs">
+      <DependentUpon>CustomNotificationsNotificationsDialogViewControllerViewController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\GuardarMensajeCustomController.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\GuardarMensajeCustomController.Designer.cs">
+      <DependentUpon>GuardarMensajeCustomController.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controllers\MarcarMensajesComoLeidos.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controllers\MarcarMensajesComoLeidos.Designer.cs">
+      <DependentUpon>MarcarMensajesComoLeidos.cs</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseUpdate\Updater.cs" />
     <Compile Include="Migrations\202309032017104_InitialCreate.cs" />
     <Compile Include="Migrations\202309032017104_InitialCreate.designer.cs">
@@ -160,6 +177,46 @@
     <Compile Include="Migrations\202309070226467_Eliminando-Clases-innecesarias.designer.cs">
       <DependentUpon>202309070226467_Eliminando-Clases-innecesarias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202309140045219_Agregando-entidad-Evento.cs" />
+    <Compile Include="Migrations\202309140045219_Agregando-entidad-Evento.designer.cs">
+      <DependentUpon>202309140045219_Agregando-entidad-Evento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309140101170_Agregando-campo-fechaprogramada-a-evento.cs" />
+    <Compile Include="Migrations\202309140101170_Agregando-campo-fechaprogramada-a-evento.designer.cs">
+      <DependentUpon>202309140101170_Agregando-campo-fechaprogramada-a-evento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309140108202_Agregando-campo-listaMensajes-a-evento.cs" />
+    <Compile Include="Migrations\202309140108202_Agregando-campo-listaMensajes-a-evento.designer.cs">
+      <DependentUpon>202309140108202_Agregando-campo-listaMensajes-a-evento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309140156140_Agregando-campo-time-a-evento.cs" />
+    <Compile Include="Migrations\202309140156140_Agregando-campo-time-a-evento.designer.cs">
+      <DependentUpon>202309140156140_Agregando-campo-time-a-evento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309140305452_Modificando-Campo-FechaProgramada.cs" />
+    <Compile Include="Migrations\202309140305452_Modificando-Campo-FechaProgramada.designer.cs">
+      <DependentUpon>202309140305452_Modificando-Campo-FechaProgramada.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309140347389_Modificando-Campos.cs" />
+    <Compile Include="Migrations\202309140347389_Modificando-Campos.designer.cs">
+      <DependentUpon>202309140347389_Modificando-Campos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309142337329_Agregando-Campo-Leido.cs" />
+    <Compile Include="Migrations\202309142337329_Agregando-Campo-Leido.designer.cs">
+      <DependentUpon>202309142337329_Agregando-Campo-Leido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309150217388_Agregando-Campo-Leidoj.cs" />
+    <Compile Include="Migrations\202309150217388_Agregando-Campo-Leidoj.designer.cs">
+      <DependentUpon>202309150217388_Agregando-Campo-Leidoj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309150246354_Agregando-Campo-Leido-Mensaje.cs" />
+    <Compile Include="Migrations\202309150246354_Agregando-Campo-Leido-Mensaje.designer.cs">
+      <DependentUpon>202309150246354_Agregando-Campo-Leido-Mensaje.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202309300010307_Eliminando-Campo-HoraProgramada.cs" />
+    <Compile Include="Migrations\202309300010307_Eliminando-Campo-HoraProgramada.designer.cs">
+      <DependentUpon>202309300010307_Eliminando-Campo-HoraProgramada.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Module.cs">
       <SubType>Component</SubType>
@@ -170,8 +227,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Controllers\EnviarMensajeController.resx">
-      <DependentUpon>EnviarMensajeController.cs</DependentUpon>
+    <EmbeddedResource Include="Controllers\MarcarMensajesComoLeidos.resx">
+      <DependentUpon>MarcarMensajesComoLeidos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202309032017104_InitialCreate.resx">
       <DependentUpon>202309032017104_InitialCreate.cs</DependentUpon>
@@ -199,6 +256,36 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202309070226467_Eliminando-Clases-innecesarias.resx">
       <DependentUpon>202309070226467_Eliminando-Clases-innecesarias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309140045219_Agregando-entidad-Evento.resx">
+      <DependentUpon>202309140045219_Agregando-entidad-Evento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309140101170_Agregando-campo-fechaprogramada-a-evento.resx">
+      <DependentUpon>202309140101170_Agregando-campo-fechaprogramada-a-evento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309140108202_Agregando-campo-listaMensajes-a-evento.resx">
+      <DependentUpon>202309140108202_Agregando-campo-listaMensajes-a-evento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309140156140_Agregando-campo-time-a-evento.resx">
+      <DependentUpon>202309140156140_Agregando-campo-time-a-evento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309140305452_Modificando-Campo-FechaProgramada.resx">
+      <DependentUpon>202309140305452_Modificando-Campo-FechaProgramada.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309140347389_Modificando-Campos.resx">
+      <DependentUpon>202309140347389_Modificando-Campos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309142337329_Agregando-Campo-Leido.resx">
+      <DependentUpon>202309142337329_Agregando-Campo-Leido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309150217388_Agregando-Campo-Leidoj.resx">
+      <DependentUpon>202309150217388_Agregando-Campo-Leidoj.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309150246354_Agregando-Campo-Leido-Mensaje.resx">
+      <DependentUpon>202309150246354_Agregando-Campo-Leido-Mensaje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202309300010307_Eliminando-Campo-HoraProgramada.resx">
+      <DependentUpon>202309300010307_Eliminando-Campo-HoraProgramada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Model.DesignedDiffs.xafml" />
     <EmbeddedResource Include="Module.resx">
