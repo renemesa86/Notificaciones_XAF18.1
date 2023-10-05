@@ -34,11 +34,16 @@ namespace Notificaciones.Module.BusinessObjects
         //[VisibleInListView]
         //[VisibleInDetailView]
         public String Contenido { get; set; }
-        public DateTime FechaVencimiento { get; set; }
+        public DateTime FechaProgramada { get; set; }
 
         public virtual PermissionPolicyUser Emisor { get; set; }
 
         public virtual PermissionPolicyUser Receptor { get; set; }
+
+        public Boolean Leido { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Required]
+        public virtual Evento Evento { get; set; }
 
         //public String Contenido { get; set; }
 
@@ -86,9 +91,9 @@ namespace Notificaciones.Module.BusinessObjects
             {
                 //Si hora de alarma es null ó hora de alarma es menor 
                 //que FECHAVENCIMIENTO - RECORDAREN
-                if ((AlarmTime == null) || (AlarmTime < FechaVencimiento - RemindIn.Value))
+                if ((AlarmTime == null) || (AlarmTime < FechaProgramada - RemindIn.Value))
                 {
-                    AlarmTime = FechaVencimiento - RemindIn.Value;
+                    AlarmTime = FechaProgramada - RemindIn.Value;
                 }
             }
             else
