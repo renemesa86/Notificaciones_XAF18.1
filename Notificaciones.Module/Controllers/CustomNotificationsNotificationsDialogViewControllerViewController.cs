@@ -42,8 +42,7 @@ namespace Notificaciones.Module.Controllers
 
         private void CustomizeActionControlControllerWeb_Execute(object sender, SimpleActionExecuteEventArgs e)
         {            
-            if (e.CurrentObject != null)
-            {
+           
                 foreach (var mensaje in e.SelectedObjects)
                 {
                     var id=(mensaje as DevExpress.ExpressApp.Notifications.Notification).NotificationSource.UniqueId;
@@ -56,7 +55,7 @@ namespace Notificaciones.Module.Controllers
                     
                 }
                 
-            }
+             
         }
 
         protected override void OnDeactivated()
